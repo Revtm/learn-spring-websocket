@@ -6,4 +6,5 @@ Open this project using your IDE (Intellij), Build and then Run.
 ### 2. Javascript Application
 Open folder websocketchat-test-on-js in your terminal, run with cmd: node index.js
 ## Result
-<img width="795" alt="image" src="https://github.com/Revtm/learn-spring-websocket/assets/39016040/72a6f95f-2cea-4130-bb04-29ded1b8e0ae">
+<img width="700" alt="image" src="https://github.com/Revtm/learn-spring-websocket/assets/39016040/b436e1c9-91a0-4519-a9bc-bb48107085cb">
+
