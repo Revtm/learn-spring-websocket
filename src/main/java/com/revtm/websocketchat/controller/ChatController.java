@@ -1,6 +1,5 @@
 package com.revtm.websocketchat.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revtm.websocketchat.dto.InputMessageDto;
 import com.revtm.websocketchat.dto.OutputMessageDto;
@@ -13,7 +12,7 @@ import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 
 import java.security.Principal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Controller
 public class ChatController {
@@ -29,10 +28,10 @@ public class ChatController {
     @MessageMapping("/chat")
     @SendTo("/topic/messages")
     public OutputMessageDto send(InputMessageDto inputMessage) throws Exception {
-        String time = LocalDateTime.now().toString();
+        String time = LocalDate.now().toString();
         return OutputMessageDto.builder()
-                .from(inputMessage.getFrom())
-                .msg(inputMessage.getMsg())
+                .from("App")
+                .msg("Thank You for the message, " + inputMessage.getFrom())
                 .time(time)
                 .build();
     }
@@ -41,10 +40,10 @@ public class ChatController {
     @SendToUser("/queue/reply")
     public OutputMessageDto sendSpecific(@Payload String message, Principal principal) throws Exception {
         InputMessageDto inputMessage = objectMapper.readValue(message, InputMessageDto.class);
-        String time = LocalDateTime.now().toString();
+        String time = LocalDate.now().toString();
         return OutputMessageDto.builder()
-                .from(inputMessage.getFrom())
-                .msg(inputMessage.getMsg())
+                .from("App")
+                .msg("Thank You for the message, " + inputMessage.getFrom())
                 .time(time)
                 .build();
     }

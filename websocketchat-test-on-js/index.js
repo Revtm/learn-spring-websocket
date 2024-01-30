@@ -18,7 +18,7 @@ const privateClient1 = new Client({
     privateClient1.subscribe(queue, callback);
     privateClient1.publish({
       destination: '/app/private-chat',
-      body: JSON.stringify({from: "Msg sent by Private Client 1",msg : "Hi, There!"})
+      body: JSON.stringify({from: "Private Client 1",msg : "Hi, There!"})
     });
   },
 });
@@ -39,7 +39,7 @@ const privateClient2 = new Client({
     privateClient2.subscribe(queue, callback);
     privateClient2.publish({
       destination: '/app/private-chat',
-      body: JSON.stringify({from: "Msg sent by Private Client 2",msg : "Hi, There!"})
+      body: JSON.stringify({from: "Private Client 2",msg : "Hi, There!"})
     });
   },
 });
@@ -63,7 +63,7 @@ const client1 = new Client({
     client1.subscribe(queue, callback);
     client1.publish({
       destination: '/app/chat',
-      body: JSON.stringify({from: "A Msg broadcasted by Public Client 1",msg : "Hi, There!"})
+      body: JSON.stringify({from: "Public Client 1",msg : "Hi, There!"})
     });
   },
 });
